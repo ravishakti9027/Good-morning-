@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>🌅 सुप्रभात - Good Morning Wish 🌅</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff6e40 0%, #ffab40 50%, #fff59d 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      text-align: center;
+      color: #3e1100;
+      padding-bottom: 130px; /* Niche wale naam box ke liye jagah */
+      overflow-x: hidden;
+    }
+
+    /* Upar se phool aur titli girne wala animation */
+    .falling-items {
+      position: fixed;
+      top: -10%;
+      z-index: 99;
+      user-select: none;
+      pointer-events: none;
+      font-size: 22px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0.7; }
+    }
+
+    /* Main Responsive Container (Mobile + PC) */
+    .main-wrapper {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 10px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Adsterra Ad Box Styling */
+    .ad-box {
+      width: 100%;
+      margin: 10px auto;
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1.5px dashed #d84315;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .ad-title {
+      font-size: 10px;
+      color: #6d2600;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* Main Wishing Card */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 22px;
+      padding: 18px 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+      border: 3px solid #ffd600;
+      margin-top: 6px;
+    }
+
+    /* Sender Name Animation */
+    .sender-name {
+      font-family: 'Rozha One', serif;
+      font-size: 30px;
+      color: #d50000;
+      text-shadow: 2px 2px 0px #ffea00, 0 0 15px rgba(255, 196, 0, 0.9);
+      animation: pulseName 1.4s infinite alternate;
+      word-wrap: break-word;
+      line-height: 1.25;
+      padding: 0 5px;
+    }
+
+    @keyframes pulseName {
+      0% { transform: scale(0.96); }
+      100% { transform: scale(1.05); }
+    }
+
+    .ki-taraf-se {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e65100;
+      margin: 6px 0 12px 0;
+    }
+
+    /* AAPKA COFFEE & BUTTERFLY GIF PHOTO BOX */
+    .gif-box {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto 12px auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 4px solid #ff9100;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+      background: #1a0d1a;
+    }
+
+    .gif-box img {
+      width: 100%;
+      height: auto;
+      max-height: 440px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Good Morning Title */
+    .gm-heading {
+      font-size: 24px;
+      font-weight: 800;
+      color: #c62828;
+      text-shadow: 1px 1px 0px #ffd600;
+      margin: 8px 0;
+    }
+
+    /* Hindi Shayari Box */
+    .shayari {
+      background: linear-gradient(135deg, #fffde7, #ffe082);
+      border-left: 5px solid #ff6d00;
+      border-right: 5px solid #ff6d00;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #4e1a00;
+      margin-top: 8px;
+    }
+
+    /* ========================================================== */
+    /* FIXED BOTTOM BAR (Mobile & PC 100% Visible)                */
+    /* ========================================================== */
+    .bottom-share-bar {
+      position: fixed;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96%;
+      max-width: 600px;
+      background: #ffffff;
+      padding: 8px 10px;
+      border-radius: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      border: 3px solid #ff6d00;
+      z-index: 99999;
+    }
+
+    .share-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .name-box {
+      flex: 1;
+      min-width: 0;
+      width: 55%;
+      padding: 11px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 2px solid #ff9100;
+      border-radius: 30px;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      background: #fffdf7;
+      color: #222;
+    }
+
+    .name-box:focus {
+      border-color: #d50000;
+    }
+
+    /* WhatsApp Button (Mobile + PC dono me 100% dikhega) */
+    .wa-btn {
+      flex-shrink: 0;
+      background: #25D366;
+      color: #ffffff;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 3px 10px rgba(37, 211, 102, 0.45);
+      white-space: nowrap;
+      animation: pulseBtn 1.8s infinite;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    /* ========================================================== */
+    /* PC / LAPTOP SCREEN DESIGN (Screen >= 768px)                */
+    /* ========================================================== */
+    @media (min-width: 768px) {
+      body {
+        padding-top: 20px;
+        padding-bottom: 140px;
+      }
+
+      .main-wrapper {
+        max-width: 740px;
+        padding: 20px;
+      }
+
+      .card {
+        padding: 30px 40px;
+        border-radius: 28px;
+      }
+
+      .sender-name {
+        font-size: 42px;
+      }
+
+      .ki-taraf-se {
+        font-size: 18px;
+      }
+
+      .gif-box {
+        max-width: 420px;
+      }
+
+      .gif-box img {
+        max-height: 480px;
+      }
+
+      .gm-heading {
+        font-size: 32px;
+      }
+
+      .shayari {
+        font-size: 18px;
+        padding: 18px 25px;
+      }
+
+      .bottom-share-bar {
+        bottom: 15px;
+        padding: 10px 16px;
+      }
+
+      .name-box {
+        font-size: 16px;
+        padding: 12px 18px;
+      }
+
+      .wa-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Phool aur titli girne ka container -->
+  <div id="flowerContainer"></div>
+
+  <div class="main-wrapper">
+
+    <!-- ========================================================== -->
+    <!-- 1. ADSTERRA TOP BANNER AD YAHAN LAGAYEIN                   -->
+    <!-- ========================================================== -->
+    <div class="ad-box">
+      <span class="ad-title">Advertisement</span>
+      <!-- Niche wali <div> line hata kar Adsterra 320x50 ka <script> code paste karein -->
+      <div style="width:100%; max-width:320px; height:50px; background:#ffe0b2; display:flex; align-items:center; justify-content:center; font-size:12px; color:#bf360c; border-radius:6px;">
+        [ Adsterra Top Banner Ad (320x50) ]
+      </div>
+    </div>
+
+
+    <!-- MAIN GOOD MORNING CARD -->
+    <div class="card">
+      
+      <!-- Bhejne wale ka naam yahan chamkega -->
+      <div id="displayName" class="sender-name">✨ आपके प्यारे दोस्त ✨</div>
+      <div class="ki-taraf-se">की तरफ से आपको और आपके परिवार को</div>
+
+      <!-- ========================================================== -->
+      <!-- AAPKA BHEJA HUA COFFEE & BUTTERFLY GIF ADD KAR DIYA HAI    -->
+      <!-- ========================================================== -->
+      <div class="gif-box">
+        <img src="https://i.pinimg.com/originals/c7/87/61/c78761917c28cf2db4f355e403096481.gif" 
+             onerror="this.onerror=null; this.src='c78761917c28cf2db4f355e403096481.jpg';" 
+             alt="Good Morning Coffee Butterfly GIF">
+      </div>
+
+      <div class="gm-heading">☕ सुप्रभात (Good Morning) 🦋</div>
+
+      <!-- Hindi Good Morning Shayari -->
+      <div class="shayari">
+        🦋 "गरमा-गरम चाय की प्याली और सुबह की प्यारी हवा,<br>
+        आपका हर पल खुशियों से भरा रहे, यही है हमारी दुआ!" ☕<br>
+        🙏 <b>आपका आज का दिन मंगलमय हो!</b> 🙏
+      </div>
+
+    </div>
+
+
+    <!-- ========================================================== -->
+    <!-- 2. ADSTERRA NATIVE BANNER AD YAHAN LAGAYEIN                -->
+    <!-- ========================================================== -->
+    <div class="ad-box">
+      <span class="ad-title">Sponsored</span>
+      <!-- Niche wali <div> line hata kar Adsterra Native Banner ka <script> code paste karein -->
+      <div style="width:100%; min-height:90px; background:#ffe0b2; display:flex; align-items:center; justify-content:center; font-size:12px; color:#bf360c; border-radius:6px;">
+        [ Adsterra Native Banner Ad ]
+      </div>
+    </div>
+
+
+    <!-- ========================================================== -->
+    <!-- 3. ADSTERRA BOTTOM BANNER AD (300x250) YAHAN LAGAYEIN      -->
+    <!-- ========================================================== -->
+    <div class="ad-box">
+      <span class="ad-title">Advertisement</span>
+      <!-- Niche wali <div> line hata kar Adsterra 300x250 ka <script> code paste karein -->
+      <div style="width:100%; max-width:300px; height:250px; background:#ffe0b2; display:flex; align-items:center; justify-content:center; font-size:12px; color:#bf360c; border-radius:6px;">
+        [ Adsterra 300x250 Medium Banner Ad ]
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================== -->
+  <!-- NICHE NAAM LIKHNE AUR WHATSAPP SHARE WALA FIXED BOX        -->
+  <!-- ========================================================== -->
+  <div class="bottom-share-bar">
+    <div class="share-inner">
+      <input type="text" id="nameInput" class="name-box" placeholder="यहाँ अपना नाम लिखें..." maxlength="30" onkeypress="handleEnterKey(event)">
+      
+      <button type="button" class="wa-btn" onclick="shareOnWhatsApp()">
+        📲 WhatsApp भेजें
+      </button>
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT CODE (Mobile + PC Support) -->
+  <script>
+    // 1. Jab koi link khole to URL se naam nikal kar dikhana (?n=Naam)
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const user = params.get('n');
+
+      if (user && user.trim() !== "") {
+        const cleanUser = decodeURIComponent(user.trim());
+        document.getElementById('displayName').innerText = "✨ " + cleanUser + " ✨";
+        document.title = cleanUser + " ने आपको Good Morning विश भेजा है! ☕🦋";
+      }
+
+      // Phool aur titli girane ka animation start karein
+      startFallingFlowers();
+    };
+
+    // PC par Enter button dabane se bhi WhatsApp khul jaye
+    function handleEnterKey(event) {
+      if (event.key === "Enter") {
+        shareOnWhatsApp();
+      }
+    }
+
+    // 2. WhatsApp par Share karne ka function (Mobile + PC dono me chalega)
+    function shareOnWhatsApp() {
+      const myName = document.getElementById('nameInput').value.trim();
+
+      if (myName === "") {
+        alert("कृपया पहले नीचे बॉक्स में अपना नाम लिखें! 😊");
+        document.getElementById('nameInput').focus();
+        return;
+      }
+
+      // Screen par turant naam update karein
+      document.getElementById('displayName').innerText = "✨ " + myName + " ✨";
+
+      // User ke naam ke sath naya link banana
+      const baseLink = window.location.origin + window.location.pathname;
+      const shareLink = baseLink + "?n=" + encodeURIComponent(myName);
+
+      // WhatsApp Message
+      const message = "☕🦋 *" + myName + "* ने आपके लिए एक बहुत ही सुंदर *Good Morning* संदेश भेजा है! 🌸\n\n👇 नीचे नीले लिंक पर क्लिक करके अभी देखें 👇\n" + shareLink;
+
+      // wa.me link Mobile aur PC dono par best kaam karta hai
+      const waUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+      window.open(waUrl, '_blank');
+    }
+
+    // 3. Phool aur Titli girne wala effect
+    function startFallingFlowers() {
+      const emojis = ['🦋', '🌸', '☕', '🌺', '🌞', '✨', '🌼'];
+      const container = document.getElementById('flowerContainer');
+
+      for (let i = 0; i < 15; i++) {
+        let span = document.createElement('span');
+        span.className = 'falling-items';
+        span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        span.style.left = Math.random() * 94 + 'vw';
+        span.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        span.style.animationDelay = (Math.random() * 5) + 's';
+        container.appendChild(span);
+      }
+    }
+  </script>
+
+  <!-- ========================================================== -->
+  <!-- 4. ADSTERRA SOCIAL BAR CODE YAHAN NICHE PASTE KAREIN       -->
+  <!-- ========================================================== -->
+  <!-- Apna Adsterra Social Bar <script> code is line ke niche lagayein -->
+
+</body>
+</html>
